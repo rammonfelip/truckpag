@@ -63,8 +63,9 @@ class ProcessarArquivoDeProdutos implements ShouldQueue
     private function finalizar()
     {
         foreach ($this->lines as $produto) {
+            $code = str_replace('"', '', $produto['code']);
             Produto::updateOrCreate(
-                ['code' => $produto['code']],
+                ['code' => $code],
                 [
                     'product_name' => $produto['product_name'] ?? null,
                     'url' => $produto['url'] ?? null,

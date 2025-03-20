@@ -10,11 +10,7 @@ class Produto extends Model
     protected $collection = 'produtos';
 
     protected $fillable = [
-        'code',
-        'product_name',
-        'brands',
-        'categories',
-        'imported_t',
-        'status',
+        'code', 'product_name', 'url', 'brands', 'categories', 'image_url', 'origins', 'last_modified_t',
+        'last_modified_datetime', 'imported_t', 'imported_datetime', 'status',
     ];
 }

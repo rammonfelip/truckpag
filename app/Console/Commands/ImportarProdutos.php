@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Jobs\ProcessarArquivoDeProdutos;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class ImportarProdutos extends Command
@@ -13,6 +14,7 @@ class ImportarProdutos extends Command
 
     public function handle()
     {
+        Cache::put('last_cron_execution_time', time());
         $urlFiles = 'https://challenges.coode.sh/food/data/json/index.txt';
         $response = Http::get($urlFiles);
 
